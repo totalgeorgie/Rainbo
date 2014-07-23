@@ -15,10 +15,15 @@ gem 'bootstrap-sass', '~> 3.2.0.0'
 gem 'newrelic_rpm', '~> 3.9.0.229'
 gem 'turbolinks', '~> 2.2.2'
 
+
 group :development, :test do
   gem 'debugger', '~> 1.6.8'
   gem 'pry-rails', '~> 0.3.2'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'better_errors', '~> 1.1.0'
   gem 'spring', '~> 1.1.3'
+end
+
+group :production do
+  gem 'rails_12factor', '~> 0.0.2'
 end
