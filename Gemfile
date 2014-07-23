@@ -14,6 +14,7 @@ gem 'jquery-ui-rails', '~> 5.0.0'
 gem 'bootstrap-sass', '~> 3.2.0.0'
 gem 'newrelic_rpm', '~> 3.9.0.229'
 gem 'turbolinks', '~> 2.2.2'
+gem 'autoprefixer-rails', '~> 2.1.1.20140710'
 
 
 group :development, :test do
