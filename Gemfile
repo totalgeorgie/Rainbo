@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.1.3'
 gem 'backbone-rails', '~> 1.1.2'
 gem 'jquery-ui-rails', '~> 5.0.0'
 gem 'bootstrap-sass', '~> 3.2.0.0'
+gem 'newrelic_rpm', '~> 3.9.0.229'
+gem 'turbolinks', '~> 2.2.2'
 
 group :development, :test do
   gem 'debugger', '~> 1.6.8'
