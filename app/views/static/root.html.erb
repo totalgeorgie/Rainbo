@@ -1,9 +1,36 @@
+<div class='main'>
+
+<%= render 'new' %>
+
+<nav class='navbar navbar-default' role='navigation'>
+  <div class='container-fluid'>
+    <div class='navbar-header'>
+      <button type='button'
+              class='navbar-toggle'
+              data-toggle='collapse'
+              data-target='navbar-collapse'>
+        Toggle Navigation
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">ProFlows</a>
+    </div>
+  </div>
+</nav>
+
 <div class='stripe'>
   <%= image_tag 'logo.png' %>
   <h1>Rainbo makes it easy to organize anything with anyone.</h1>
   <p>Drop the lengthy email threads, out-of-date spreadsheets, no-longer-so-sticky notes, and clunky software for managing your projects and get Rainbo, the easy, free, and visual way to organize your importan stuff.</p>
-  <a href='users/new' class='btn btn-primary'>Sign Up - It's free</a>
-  <br>
+  
+  
+  
+  <button class='btn btn-primary btn-lg'
+          data-toggle='modal'
+          data-target='#signUp'>
+          Sign Up - It's Free!
+  </button>
   <a href='session/new' class='btn btn-link'>Or log in</a>
 </div>
 <div class='offstripe'>
