@@ -4,6 +4,7 @@ window.Rainbo = {
   Views: {},
   Routers: {},
   initialize: function() {
+    alert('lmao');
   }
 };
 

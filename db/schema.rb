@@ -11,10 +11,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724163617) do
+ActiveRecord::Schema.define(version: 20140725174611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "board_memberships", force: true do |t|
+    t.integer  "board_id",   null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "board_memberships", ["board_id", "user_id"], name: "index_board_memberships_on_board_id_and_user_id", unique: true, using: :btree
+
+  create_table "boards", force: true do |t|
+    t.string   "title",      null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "boards", ["user_id"], name: "index_boards_on_user_id", using: :btree
+
+  create_table "card_assignments", force: true do |t|
+    t.integer  "card_id",    null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "card_assignments", ["card_id", "user_id"], name: "index_card_assignments_on_card_id_and_user_id", unique: true, using: :btree
+
+  create_table "cards", force: true do |t|
+    t.string   "title",                     null: false
+    t.integer  "list_id",                   null: false
+    t.text     "description"
+    t.float    "ord",         default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cards", ["list_id"], name: "index_cards_on_list_id", using: :btree
+
+  create_table "items", force: true do |t|
+    t.string   "title",                      null: false
+    t.integer  "card_id",                    null: false
+    t.boolean  "done",       default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "items", ["card_id"], name: "index_items_on_card_id", using: :btree
+
+  create_table "lists", force: true do |t|
+    t.string   "title",                    null: false
+    t.integer  "board_id",                 null: false
+    t.float    "ord",        default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lists", ["board_id"], name: "index_lists_on_board_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false

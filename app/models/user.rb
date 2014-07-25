@@ -31,6 +31,10 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
   
+  def full_name
+    "#{self.given_name} #{self.surname}"
+  end
+  
   private
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token

@@ -1,34 +1,21 @@
-<div class="modal fade" id="signUp">
+<div class="modal fade" id="logIn">
   <div class="modal-dialog">
     <div class="modal-content">
       
       <div class="modal-header">  
         <h1 class="modal-title">
-          Start Using ProFlows
+          Log in & Start Flowing!
         </h1>
       </div>
       
       <div class="modal-body">
         <div class='signUp-form'>
-          <form action='<%= users_url %>' method='post'>
+          <form action='<%= session_url %>' method='post'>
             <input type='hidden'
                    name='authenticity_token'
                    value='<%= form_authenticity_token %>'>
 
             <div class='signUp-inputs form-group'>
-
-              <input type='text'
-                     name='user[given_name]'
-                     id='user_given_name'
-                     placeholder='First Name'
-                     class='form-control'>
-
-              <input type='text'
-                     name='user[surname]'
-                     id='user_surname'
-                     placeholder='Last Name'
-                     class='form-control'>
-
               <input type='email'
                      name='user[email]'
                      id='user_email'
@@ -43,7 +30,7 @@
             </div>
   
             <button class='btn btn-danger btn-lg btn-start'>
-              Get Started
+              Log In
             </button>
           </form>
         </div>
