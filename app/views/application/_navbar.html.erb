@@ -18,16 +18,17 @@
     <div class="collapse navbar-collapse" id="splash-header-collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a href="#">WHY & HOW</a>
+          <%= link_to 'WHY & HOW', '/why' %>
         </li>
         
         <li>
-          <a href="#">COMMUNITY</a>
+          <%= link_to 'COMMUNITY', '/community' %>
+        </li>
+        
+        <li>
+          <%= link_to 'HELP', '/help' %>
         </li>
       </ul>
-      
-      
-      
       <% if logged_in? %>
       
         <ul class="nav navbar-nav navbar-right">

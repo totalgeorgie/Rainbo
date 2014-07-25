@@ -1,13 +1,14 @@
-window.Rainbo = {
+window.ProFlo = {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('lmao');
+    new ProFlo.Routers.Router
+    Backbone.history.start();
   }
 };
 
 $(document).ready(function(){
-  Rainbo.initialize();
+  ProFlo.initialize();
 });

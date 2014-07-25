@@ -3,7 +3,7 @@
 //= require bootstrap
 //= require underscore
 //= require backbone
-//= require rainbo
+//= require proflo
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
