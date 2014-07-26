@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in!(@user)
-      redirect_to '/dashboard'
+      redirect_to root_url
     else
       render json: @user.errors.to_json
     end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   
   def update
     if @user.update_attributes(user_params)
-      redirect_to '/dashboard'
+      redirect_to root_url
     else
       render json: @user.errors.to_json
     end

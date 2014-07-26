@@ -10,6 +10,10 @@ ProFlo.Routers.Router = Backbone.Router.extend({
     '/help' : 'help'
   },
   
+  index: function() {
+    this.$rootEl.html('backbone.js is working as intended.');
+  },
+  
   _swapView: function (view) {
     this.currentView && this.currentView.remove();
     this.currentView = view;

@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     
     if @user
       log_in!(@user)
-      redirect_to '/dashboard'
+      redirect_to root_url
     else
       render json: @user.errors.to_json
     end
@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
   
   def destroy
     log_out!
-    redirect_to '/'
+    redirect_to '/splash'
   end
 end

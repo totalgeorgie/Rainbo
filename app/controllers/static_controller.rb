@@ -1,9 +1,9 @@
 class StaticController < ApplicationController
-  before_action :require_logged_in!, only: [:dashboard]
+  before_action :require_logged_in!, only: :root
   
-  def splash
+  def root
   end
   
-  def dashboard
+  def splash
   end
 end

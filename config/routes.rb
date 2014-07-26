@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'static#splash'
-  get '/dashboard', to: 'static#dashboard'
+  root to: 'static#root'
+  get '/splash', to: 'static#splash'
   
-  resources :users
-  resource :session
+  resources :users, only: [:show, :create, :destroy, :update]
+  resource :session, only: [:create, :destroy]
   
   namespace :api, defaults: { format: :json } do
     resources :boards, except: [:new, :edit]
