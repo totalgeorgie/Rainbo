@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: 'static#root'
   get '/splash', to: 'static#splash'
+  get '/why', to: 'static#why'
+  get '/community', to: 'static#community'
+  get '/help', to: 'static#help'
   
   resources :users, only: [:show, :create, :destroy, :update]
   resource :session, only: [:create, :destroy]

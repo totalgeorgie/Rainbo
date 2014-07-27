@@ -4,7 +4,8 @@ window.ProFlo = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new ProFlo.Routers.Router
+    new ProFlo.Routers.StaticRouter();
+    new ProFlo.Routers.Router();
     Backbone.history.start();
   }
 };

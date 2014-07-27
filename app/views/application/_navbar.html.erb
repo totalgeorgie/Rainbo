@@ -11,34 +11,35 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <%= link_to 'ProFlows', '#' %>
+        <%= link_to 'ProFlows', '/#' %>
       </span>
     </div>
     
     <div class="collapse navbar-collapse" id="splash-header-collapse">
       <ul class="nav navbar-nav">
         <li>
-          <%= link_to 'WHY & HOW', '/why' %>
+          <%= link_to 'WHY & HOW', '/#/why' %>
         </li>
         
         <li>
-          <%= link_to 'COMMUNITY', '/community' %>
+          <%= link_to 'COMMUNITY', '/#/community' %>
         </li>
         
         <li>
-          <%= link_to 'HELP', '/help' %>
+          <%= link_to 'HELP', '/#/help' %>
         </li>
       </ul>
+      
       <% if logged_in? %>
       
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="<%= user_url(current_user) %>">
+            <a href="<%= "##{user_path(current_user)}" %>">
               <%= current_user.full_name %>
             </a>
           </li>
           <li>
-            <%= link_to 'Log Out <span class="glyphicon glyphicon-off"></span>'.html_safe, session_url, method: :delete %>
+            <%= link_to '<span class="glyphicon glyphicon-off"></span> Log Out'.html_safe, session_url, method: :delete %>
           </li>
         </ul>
       
