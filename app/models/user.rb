@@ -1,12 +1,29 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  email           :string(255)      not null
+#  password_digest :string(255)      not null
+#  given_name      :string(255)      not null
+#  surname         :string(255)      not null
+#  session_token   :string(255)      not null
+#  created_at      :datetime
+#  updated_at      :datetime
+
 class User < ActiveRecord::Base
   attr_reader :password
   
   validates :email, :session_token, presence: true
-  validates_format_of :email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
+  validates_format_of :email, with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
   validates :password_digest, presence: { message: 'Password can\'t be blank' }
   validates :password, length: { minimum: 6, allow_nil: true }
   
   after_initialize :ensure_session_token
+  
+  has_many :boards
+  has_many :card_assignments
+  has_many :board_memberships
   
   def self.find_by_credentials(email, password)
     User.find_by_email(email)
