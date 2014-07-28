@@ -3,8 +3,8 @@ window.ProFlo = {
   Collections: {},
   Views: {},
   Routers: {},
+  Utils: {},
   initialize: function() {
-    new ProFlo.Routers.StaticRouter();
     new ProFlo.Routers.Router();
     Backbone.history.start();
   }

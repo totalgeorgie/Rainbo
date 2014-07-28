@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       log_in!(@user)
       redirect_to root_url
     else
-      render json: @user.errors.to_json
+      render json: { error: 'That e-mail/password combination was invalid.' }
     end
   end
   

@@ -6,4 +6,7 @@ class StaticController < ApplicationController
   
   def splash
   end
+  
+  def help
+  end
 end

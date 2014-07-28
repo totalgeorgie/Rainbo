@@ -1,0 +1,33 @@
+.board-show-header {
+  width: 100%;
+  background: black;
+  color: white;
+}
+
+.board-show-header h1 {
+  margin: 0px 0px 0px 15px;
+}
+
+.board-detail {
+  font-size: 28px;
+  border: 1px solid grey;
+  margin: 5px;
+  padding: 25px;
+  background: white;
+}
+
+.board-detail:hover {
+  background: aliceblue;
+};
+
+.dashboard-header {
+  margin: 0px;
+  background-color: #26282E;
+}
+
+.dashboard-header h1 {
+  width: 100%;
+  margin: 0px;
+  padding: 5px 0px 5px 14px;
+  color: white;
+}

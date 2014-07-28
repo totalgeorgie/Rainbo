@@ -1,0 +1,22 @@
+<div class="dashboard-header">
+  <h1>Dashboard</h1>
+</div>
+
+<div class="container col-xs-6">
+  <h2>My Boards</h2>
+  <ul id="boards">
+    <% boards.each(function(board) { %>
+      <a href='#/boards/<%= board.get('id') %>'>
+        <li class="board-detail">
+          <p><%= board.escape('title') %></p>
+        </li>  
+      </a>
+    <% }); %>
+  </ul>
+</div>
+
+<div class="container col-xs-4">
+  <ul id="activity">
+    
+  </ul>
+</div>

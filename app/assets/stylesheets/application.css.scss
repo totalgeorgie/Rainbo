@@ -1,24 +1,56 @@
 /*
  *= require bootstrap
+ *= require jquery-ui/sortable
  *= require_tree .
  *= require_self
  */
 
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
+html {
+  height: 100%;
+  width: 100%;
+}
+
 body {
+  width: 100%;
+  height: 100%;
   font-family: Montserrat;
+}
+
+#boards {
+  list-style-type: none;
+}
+
+.container-fluid {
+  padding: 0px;
+}
+
+.backdrop {
+  height: 100%;
+  background-color: #f6f6f6;
+}
+
+.backdrop:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.splash {
+  margin-left: 15px;
 }
 
 .footer {
   position: absolute;
-  bottom: 0;
+  padding-right: 15px;
   width: 100%;
   height: 60px;
-  background-color: #d5d5d5;
+  background-color: lightgrey;
 }
 
 .navbar {
+  padding-left: 15px;
   background-color: #2A4A7A;
   margin-bottom: 0px;
   border: none;
@@ -30,15 +62,14 @@ body {
 }
 
 .dashboard-header {
-  width: 100%;
+  margin: 0px;
   background-color: #26282E;
 }
 
 .dashboard-header h1 {
+  width: 100%;
   margin: 0px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-left: 15px;
+  padding: 5px 0px 5px 14px;
   color: white;
 }
 

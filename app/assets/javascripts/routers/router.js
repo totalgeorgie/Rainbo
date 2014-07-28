@@ -5,11 +5,28 @@ ProFlo.Routers.Router = Backbone.Router.extend({
   
   routes: {
     '' : 'index',
+    'boards/:id' : 'boardShow',
     'users/:id' : 'userShow'
   },
   
   index: function() {
-    this.$rootEl.html('The index route was triggered by backbone.js!');
+    ProFlo.Collections.boards.fetch();
+    
+    var view = new ProFlo.Views.BoardsIndex({
+      collection: ProFlo.Collections.boards
+    });
+    
+    this._swapView(view);
+  },
+  
+  boardShow: function(id) {
+    var board = ProFlo.Collections.boards.getOrFetch(id);
+    
+    var view = new ProFlo.Views.BoardShow({
+      model: board
+    });
+    
+    this._swapView(view);
   },
   
   userShow: function(id) {

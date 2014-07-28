@@ -1,10 +1,12 @@
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require jquery-ui/sortable
 //= require underscore
 //= require backbone
+//= require bootstrap
 //= require proflo
 //= require_tree ../templates
+//= require_tree ./utils
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views

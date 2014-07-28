@@ -12,7 +12,7 @@
 #
 
 class Card < ActiveRecord::Base
-  validates :title, :list, :description, :ord, presence: true
+  validates :title, :list, :ord, presence: true
   
   belongs_to :list
   
