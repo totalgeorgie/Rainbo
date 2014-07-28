@@ -1,5 +1,5 @@
 ProFlo.Views.BoardShow = Backbone.CompositeView.extend({
-  className: 'clearfix',
+  className: 'board-show',
 
   events: {
     'sortstop': 'saveOrds'

@@ -1,3 +1,22 @@
+#main {
+  position: fixed;
+  width: 100%;
+  top: 35px;
+  bottom: 0px;
+  padding: 0px;
+  background-color: #f6f6f6;
+}
+
+#main:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#boards {
+  list-style-type: none;
+}
+
 .board-show-header {
   width: 100%;
   background: black;
@@ -7,27 +26,145 @@
 .board-show-header h1 {
   margin: 0px 0px 0px 15px;
 }
+/*
+ *= require bootstrap
+ *= require jquery-ui/sortable
+ *= require_tree .
+ *= require_self
+ */
+
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Arial;
+}
+
+.row {
+  padding-left: 15px;
+}
+
+.col-md-12 {
+  padding: 0px;
+}
+
+.splash {
+  margin-left: 15px;
+}
+
+.static-show {
+  margin-top: 50px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding-right: 15px;
+  width: 100%;
+  height: 60px;
+  background-color: lightgrey;
+}
+
+.navbar {
+  min-height: 35px;
+}
+
+body nav.navbar {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  height: 30px;
+  width: 100%;
+  background-color: #21608a;
+  margin-bottom: 0px;
+  border: none;
+  border-radius: 0px;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+  padding-top: 10px;
+}
+
+.footer div {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signUp-form:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.signUp-form input {
+  display: block;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.btn-start {
+  cursor: pointer;
+}
+
+.search-form {
+  display: inline-block;
+}
+
+.nav-user-auth {
+  float: right;
+}
+
+.nav-user-auth li {
+  display: inline-block;
+}
+
+.project-header {
+  display: inline-block;
+  margin-left: 14px;
+}
+
+.board-new {
+  float: right;
+  margin-top: 20px;
+  margin-right: 20px;
+}
 
 .board-detail {
-  font-size: 28px;
+  font-size: 18px;
   border: 1px solid grey;
   margin: 5px;
-  padding: 25px;
+  margin-left: -21px;
+  padding: 20px 0px 15px 20px;
   background: white;
 }
 
 .board-detail:hover {
-  background: aliceblue;
+  background: #2A4A7A;
 };
 
 .dashboard-header {
-  margin: 0px;
-  background-color: #26282E;
-}
-
-.dashboard-header h1 {
+  background-color: #32353C;
   width: 100%;
   margin: 0px;
-  padding: 5px 0px 5px 14px;
   color: white;
+}
+
+.dashboard-header:after {
+  content: "";
+  clear: both;
+  display: table;
+} 
+
+.dashboard-header div h4 {
+  margin: 0px;
+  font-weight: normal;
+  padding: 10px 0px 10px 15px;
+  
 }

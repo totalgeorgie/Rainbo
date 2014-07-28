@@ -14,5 +14,12 @@ ProFlo.Views.BoardsIndex = Backbone.View.extend({
 
     this.$el.html(content);
     return this;
+  },
+  
+  renderBoardForm: function () {
+    var view = new ProFlo.Views.ListForm({
+      collection: this.collection
+    });
+    this.addSubview('#list-form', view);
   }
 });

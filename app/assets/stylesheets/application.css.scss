@@ -5,7 +5,6 @@
  *= require_self
  */
 
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
 
 html {
   height: 100%;
@@ -15,34 +14,28 @@ html {
 body {
   width: 100%;
   height: 100%;
-  font-family: Montserrat;
+  font-family: Arial;
 }
 
-#boards {
-  list-style-type: none;
+.row {
+  padding-left: 15px;
 }
 
-.container-fluid {
+.col-md-12 {
   padding: 0px;
-}
-
-.backdrop {
-  height: 100%;
-  background-color: #f6f6f6;
-}
-
-.backdrop:after {
-  content: "";
-  clear: both;
-  display: table;
 }
 
 .splash {
   margin-left: 15px;
 }
 
+.static-show {
+  margin-top: 50px;
+}
+
 .footer {
   position: absolute;
+  bottom: 0;
   padding-right: 15px;
   width: 100%;
   height: 60px;
@@ -50,27 +43,40 @@ body {
 }
 
 .navbar {
-  padding-left: 15px;
-  background-color: #2A4A7A;
+  min-height: 35px;
+}
+
+.collapse {
+  padding-left: 0px;
+}
+
+.navbar .container-fluid {
+  padding-left: 0px;
+}
+
+body nav.navbar {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  height: 30px;
+  width: 100%;
+  background-color: #21608a;
   margin-bottom: 0px;
   border: none;
   border-radius: 0px;
 }
 
+.pf-brand img {
+  height: 35px;
+}
+
+#header-logo a {
+  padding: 0px;
+}
+
 .navbar-default .navbar-nav > li > a {
   color: white;
-}
-
-.dashboard-header {
-  margin: 0px;
-  background-color: #26282E;
-}
-
-.dashboard-header h1 {
-  width: 100%;
-  margin: 0px;
-  padding: 5px 0px 5px 14px;
-  color: white;
+  padding-top: 10px;
 }
 
 .footer div {

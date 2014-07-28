@@ -5,8 +5,7 @@ ProFlo.Routers.Router = Backbone.Router.extend({
   
   routes: {
     '' : 'index',
-    'boards/:id' : 'boardShow',
-    'users/:id' : 'userShow'
+    'boards/:id' : 'boardShow'
   },
   
   index: function() {
@@ -27,10 +26,6 @@ ProFlo.Routers.Router = Backbone.Router.extend({
     });
     
     this._swapView(view);
-  },
-  
-  userShow: function(id) {
-    this.$rootEl.html('The user show route was triggered by backbone.js! The id of this user is: ' + id + '.');
   },
   
   _swapView: function (view) {

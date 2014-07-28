@@ -1,0 +1,55 @@
+<div class="container-fluid static-show">
+  <h1><%= @user.full_name %></h1>
+
+  <form action="<%= user_url @user %>" method="post">
+    <input type="hidden"
+           name="_method"
+           value="patch">
+         
+    <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+           
+    <div class="form-group">       
+      <label for="user_given_name">First Name</label>
+      <input type="text"
+             id="user_given_name"
+             name="user[given_name]"
+             placeholder="First Name"
+             value="<%= @user.given_name %>"
+             class="form-control">
+    </div>
+           
+           
+    <div class="form-group">
+      <label for="user_surname">Last Name</label>
+      <input type="text"
+             id="user_surname"
+             name="user[surname]"
+             placeholder="Last Name"
+             value="<%= @user.surname %>"
+             class="form-control">
+    </div>
+    
+    <div class="form-group">
+      <label for="user_email">E-Mail</label>
+      <input type="email"
+             id="user_email"
+             name="user[email]"
+             placeholder="E-Mail"
+             value="<%= @user.email %>"
+             class="form-control">
+    </div>
+    
+    <div class="form-group">
+      <label for="user_password">New Password</label>       
+      <input type="password"
+             id="user_password"
+             name="user[password]"
+             placeholder="Password"
+             class="form-control">
+    </div>
+         
+    <button class="btn btn-default">Update your account</button>
+  </form>
+</div>

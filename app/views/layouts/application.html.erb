@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ProFlows - Let your project flow!</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>ProFlows - Let your project flow!</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= render 'navbar' %>
+  <%= render 'navbar' %>
 
-<%= yield %>
+  <div class="col-md-12">
+  <%= yield %>
+  </div>
 
-<%= render 'footer' %>
-</body>
+  <% unless @dashboard %>
+    <%= render 'footer' %>
+  <% end %>
+
+  </body>
 </html>
