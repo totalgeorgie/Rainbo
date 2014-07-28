@@ -17,39 +17,52 @@
       <ul class="nav navbar-nav">
         <li class="pf-brand">
           <span id="header-logo">
-            <%= link_to "#{image_tag 'logo.png'}".html_safe, '/' %>
+            <%= link_to "#{image_tag 'navbarlogotransparent.png'}".html_safe, '/' %>
           </span>
-        </li>
-        
-        <li>
-          <%= link_to 'WHY & HOW', '/why' %>
-        </li>
-        
-        <li>
-          <%= link_to 'COMMUNITY', '/community' %>
-        </li>
-        
-        <li>
-          <%= link_to 'HELP', '/help' %>
         </li>
       </ul>
       
-      <% if logged_in? %>
+      <ul class="nav navbar-nav navbar-right">
+      <% unless @dashboard %>
+          <li>
+            <%= link_to 'WHY & HOW', '/why' %>
+          </li>
+        
+          <li>
+            <%= link_to 'COMMUNITY', '/community' %>
+          </li>
+        
+          <li>
+            <%= link_to 'HELP', '/help' %>
+          </li>
+      <% end %>
       
-        <ul class="nav navbar-nav navbar-right">
+      
+      <% if logged_in? %>
           <li>
-            <a href="<%= "#{user_path(current_user)}" %>">
-              <%= current_user.full_name %>
-            </a>
+            <div class="dropdown">
+              <button data-toggle="dropdown"
+                      id="user-dropdown"
+                      class="btn btn-link username-button">
+                <%= current_user.full_name.upcase %> <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a tabindex="-1"
+                     href='<%= "#{user_path(current_user)}" %>'>
+                     Account Profile
+                  </a>
+                </li>
+                <li>
+                  <%= link_to '<span class="glyphicon glyphicon-off"></span> Log Out'.html_safe, session_url, method: :delete %>
+                </li>
+              </ul>
+              </a>
+            </div>
           </li>
-          <li>
-            <%= link_to '<span class="glyphicon glyphicon-off"></span> Log Out'.html_safe, session_url, method: :delete %>
-          </li>
-        </ul>
+          
       
       <% else %>
-      
-      <ul class="nav navbar-nav navbar-right">
         <li>
           <a href="#"
              data-toggle="modal"
@@ -64,9 +77,10 @@
             Log In
           </a>
         </li>
-      </ul>
       
       <% end %>
+      
+      </ul>
       
       <!--<form class="navbar-form" role="search">
         <div class="form-group search-form">
