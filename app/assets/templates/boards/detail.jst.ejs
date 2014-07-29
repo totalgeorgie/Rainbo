@@ -1,8 +1,16 @@
 <a href='#/boards/<%= board.get('id') %>'>
   <li class="board-detail">
     <p><%= board.escape('title') %></p>
-    <div class="board-controls">
-      <a>Edit</a>
-    </div>
+    <ul class="board-controls">
+      <li class='board-members'>
+        <a href="#" class="btn btn-default">Members</a>
+      </li>
+      <li class='board-settings'>
+        <a href="#" class="btn btn-default">Settings</a>
+      </li>
+      <li class='board-delete'>
+        <a href="#" class="btn btn-danger">Delete</a>
+      </li>
+    </ul>
   </li>
 </a>

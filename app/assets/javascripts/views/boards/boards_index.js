@@ -2,6 +2,37 @@ ProFlo.Views.BoardsIndex = Backbone.CompositeView.extend({
   template: JST['boards/index'],
 
   className: 'boards-index',
+  
+  events: {
+    'click .board-members': 'showMembers',
+    'click .board-settings': 'showSettings',
+    'click .board-delete': 'boardDelete'
+  },
+  
+  showMembers: function(e) {
+    e.preventDefault();
+    
+  },
+  
+  showSettings: function(e) {
+    e.preventDefault();
+    
+    
+  },
+  
+  boardDelete: function(e) {
+    e.preventDefault();
+    
+    var boardId = $(e.currentTarget).parents('.board-detail-div')
+                                    .data('board-id');
+
+    var view = this;
+    
+    this.collection.getOrFetch(boardId).destroy();                                
+    _($("[data-board-id=" + boardId + "]")).each(function(subv){
+      view.removeSubview('#boards', subv);
+    });
+  },
 
   initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);
@@ -24,7 +55,7 @@ ProFlo.Views.BoardsIndex = Backbone.CompositeView.extend({
       model: board
     });
     
-    this.addSubview('#boards', view);
+    this.addSubview('#boards', view, { type: 'prepend' });
   },
   
   renderBoards: function() {
