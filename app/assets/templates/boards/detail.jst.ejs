@@ -1,12 +1,20 @@
 <a href='#/boards/<%= board.get('id') %>'>
   <li class="board-detail">
-    <p><%= board.escape('title') %></p>
+    <p class="board-title">
+      <%= board.escape('title') %>
+    </p>
     <ul class="board-controls">
       <li class='board-members'>
-        <a href="#" class="btn btn-default">Members</a>
+        <form>
+          <button class="btn btn-success">Add Member</button>
+          <input class="add-board-member"
+                 type="email"
+                 name="email"
+                 placeholder="Member E-mail">
+        </form>
       </li>
       <li class='board-settings'>
-        <a href="#" class="btn btn-default">Settings</a>
+        <a href="#" class="btn btn-primary">Settings</a>
       </li>
       <li class='board-delete'>
         <a href="#" class="btn btn-danger">Delete</a>

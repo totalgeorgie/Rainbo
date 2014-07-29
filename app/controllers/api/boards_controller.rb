@@ -11,13 +11,18 @@ module Api
     end
 
     def destroy
-      @board = current_user.boards.find(params[:id])
+      @board = nil;
+      
+      current_user.all_boards.each do |board|
+        @board = board if board.id.to_s == params[:id]
+      end
+      
       @board.try(:destroy)
       render json: {}
     end
 
     def index
-      @boards = current_user.boards
+      @boards = current_user.all_boards
       render json: @boards
     end
 

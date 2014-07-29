@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   has_many :boards
   has_many :card_assignments
   has_many :board_memberships
+  has_many :subscribed_boards, through: :board_memberships, source: :board
   
   def self.find_by_credentials(email, password)
     User.find_by_email(email)
@@ -31,6 +32,10 @@ class User < ActiveRecord::Base
   
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
+  end
+  
+  def all_boards
+    self.boards + self.subscribed_boards
   end
   
   def reset_session_token!

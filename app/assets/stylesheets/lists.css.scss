@@ -1,14 +1,43 @@
 .list-display {
-  float: left;
-  width: 200px;
-  margin: 2px;
-  border: 1px solid darkgrey;
-  background-color: lightgrey;
+  display: inline-block;
+  width: 250px;
+  border: 1px solid #2c2d2f;
+  background-color: #484f57;
+  height: 100%;
+  vertical-align: top;
+}
+
+.lists-window {
+  height: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+
+.list-title {
+  text-transform: capitalize;
+  color: white;
+  font-size: 18px;
+}
+
+.list-plus {
+  color: white;
+  margin-right: 5px;
+  float: right;
+  font-size: 18px;
 }
 
 .list-heading {
-  background-color: darkgrey;
+  text-align: center;
+  padding: 8px 0px 8px 0px;
+  background-color: #2c2d2f;
   width: 100%;
-  border: none;
+  border: 1px solid #3c3d3f;
+  border-bottom: 1px solid black;
   margin: 0px 0px 10px 0px;
+}
+
+#lists {
+  overflow-x: auto;
+  white-space: nowrap;
+  height: 100%;
 }

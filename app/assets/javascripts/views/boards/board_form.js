@@ -1,8 +1,6 @@
 ProFlo.Views.BoardForm = Backbone.LinkFormView.extend({
   formTemplate: JST['boards/form'],
   linkTemplate: JST['boards/form_link'],
-  
-  tagName: 'span',
 
   create: function (event) {
     event.preventDefault();

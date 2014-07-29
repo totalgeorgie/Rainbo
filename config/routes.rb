@@ -5,11 +5,20 @@ Rails.application.routes.draw do
   get '/community', to: 'static#community'
   get '/help', to: 'static#help'
   
-  resources :users, only: [:show, :create, :destroy, :update]
+  resources :users, only: [:show, :create, :destroy, :update] do
+    collection do
+      get 'activate'
+    end
+  end
+  
   resource :session, only: [:create, :destroy]
   
   namespace :api, defaults: { format: :json } do
-    resources :boards, except: [:new, :edit]
+    resources :boards, except: [:new, :edit] do
+      collection do
+        get 'subscribe'
+      end
+    end
     resources :lists, only: [:create, :update, :destroy]
     resources :cards, only: [:create, :update, :destroy]
     resources :items, only: [:create, :update, :destroy]

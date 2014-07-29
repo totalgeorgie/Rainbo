@@ -44,7 +44,7 @@ ProFlo.Views.BoardShow = Backbone.CompositeView.extend({
     var view = new ProFlo.Views.ListForm({
       collection: this.collection
     });
-    this.addSubview('#list-form', view);
+    this.addSubview('#sidebar', view, { type: 'prepend'});
   }
 });
 

@@ -20,7 +20,7 @@ ProFlo.Routers.Router = Backbone.Router.extend({
   
   boardShow: function(id) {
     var board = ProFlo.Collections.boards.getOrFetch(id);
-    
+
     var view = new ProFlo.Views.BoardShow({
       model: board
     });

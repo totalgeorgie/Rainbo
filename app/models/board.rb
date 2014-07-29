@@ -21,4 +21,8 @@ class Board < ActiveRecord::Base
     return true if user.id == self.user_id
     board_memberships.where(user_id: user.id).exists?
   end
+  
+  def add_member(user)
+    self.members << user unless self.members.include?(user)
+  end
 end

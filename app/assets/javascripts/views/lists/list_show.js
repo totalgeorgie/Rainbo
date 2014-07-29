@@ -62,9 +62,15 @@ ProFlo.Views.ListShow = Backbone.CompositeView.extend({
     this.$el.data('list-id', this.model.id);
 
     this.renderCards();
-    this.renderFooter();
+    //changing new card form to be a header
+    //this.renderFooter();
+    
+    var formView = new ProFlo.Views.CardForm({
+      collection: this.model.cards()
+    });
+    this.addSubview('.list-heading', formView);
+    
     setTimeout(this.setHeight.bind(this));
-    // this.setHeight();
     return this;
   },
 

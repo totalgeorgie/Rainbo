@@ -1,6 +1,7 @@
 ProFlo.Views.CardForm = Backbone.LinkFormView.extend({
   formTemplate: JST['cards/form'],
   linkTemplate: JST['cards/form_link'],
+  tagName: 'span',
 
   create: function (event) {
     event.preventDefault();

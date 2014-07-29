@@ -4,7 +4,7 @@
   width: 100%;
   bottom: 0px;
   padding: 0px;
-  background-color: #f6f6f6;
+  background-color: white;
 }
 
 #main:after {
@@ -15,7 +15,6 @@
 
 #boards {
   margin: 0px 0px 0px -15px;
-  height: 600px;
   overflow: auto;
   list-style-type: none;
 }
@@ -40,111 +39,17 @@
   display: inline-block;
 }
 
-.board-show-header h1 {
-  margin: 0px 0px 0px 15px;
-}
-/*
- *= require bootstrap
- *= require jquery-ui/sortable
- *= require_tree .
- *= require_self
- */
-
-
-html {
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  width: 100%;
-  height: 100%;
-  font-family: Arial;
-}
-
-.row {
-  padding-left: 15px;
-}
-
-.col-md-12 {
-  padding: 0px;
-}
-
-.splash {
-  margin-left: 15px;
-}
-
-.static-show {
-  margin-top: 30px;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  padding-right: 15px;
-  width: 100%;
-  height: 60px;
-  background-color: lightgrey;
-}
-
-.navbar {
-  min-height: 35px;
-}
-
-body nav.navbar {
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  height: 30px;
-  width: 100%;
-  background-color: #21608a;
-  margin-bottom: 0px;
-  border: none;
-  border-radius: 0px;
-}
-
-.navbar-default .navbar-nav > li > a {
-  color: white;
-  padding-top: 10px;
-}
-
-.footer div {
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.signUp-form:after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.signUp-form input {
-  display: block;
-  width: 100%;
-  margin: 20px auto;
-}
-
 .btn {
   cursor: pointer;
-}
-
-.search-form {
-  display: inline-block;
-}
-
-.nav-user-auth {
-  float: right;
-}
-
-.nav-user-auth li {
-  display: inline-block;
 }
 
 .project-header {
   display: inline-block;
   margin-left: 14px;
+}
+
+.board-title {
+  text-transform: capitalize;
 }
 
 .board-create {
@@ -213,4 +118,33 @@ body nav.navbar {
   margin: 0px;
   font-weight: normal;
   padding: 10px 0px 10px 15px;
+}
+
+.projects {
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.project-activity {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.list-cards.ui-sortable {
+  height: 100%;
+}
+
+#sidebar {
+  padding-left: 5px;
+  color: white;
+  width: 200px;
+  height: 100%;
+  background-color: darkgrey;
+  float: left;
+}
+
+.list-hide {
+  float: left;
+  color: white;
+  cursor: pointer;
 }
