@@ -1,85 +1,64 @@
-<nav class='navbar navbar-default' role='navigation'>
-  <div class='container-fluid'>
+<nav class='navbar navbar-default col-md-12' role='navigation'>
+  <div class='container col-md-12 nav-container'>    
+    <ul id='nq1' class="nav navbar-nav navbar-left" id="navbar-log">
+      <li class="pf-brand">
+        <span id="header-logo">
+          <%= link_to "#{image_tag 'navbarlogotransparent.png'}".html_safe, '/' %>
+        </span>
+      </li>
+    </ul>
     
-    <div class='navbar-header'>
-      <button type='button'
-              class='navbar-toggle'
-              data-toggle='collapse'
-              data-target='#splash-header-collapse'>
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    
-    <div class="collapse navbar-collapse" id="splash-header-collapse">
-      <ul class="nav navbar-nav">
-        <li class="pf-brand">
-          <span id="header-logo">
-            <%= link_to "#{image_tag 'navbarlogotransparent.png'}".html_safe, '/' %>
-          </span>
+      <ul id='nq2' class="nav navbar-nav navbar-right">
+        <li class="<%= maybe_active(@community) %>">
+          <%= link_to 'COMMUNITY', 'community' %>
         </li>
-      </ul>
-      
-      <ul class="nav navbar-nav navbar-right">
-      <% unless @dashboard %>
-          <li>
-            <%= link_to 'WHY & HOW', '/why' %>
-          </li>
         
-          <li>
-            <%= link_to 'COMMUNITY', '/community' %>
-          </li>
-        
-          <li>
-            <%= link_to 'HELP', '/help' %>
-          </li>
-      <% end %>
-      
-      
+        <li class="<%= maybe_active(@help) %>">
+          <%= link_to 'HELP', '/help' %>
+        </li>
+    
       <% if logged_in? %>
-          <li>
-            <div class="dropdown">
-              <button data-toggle="dropdown"
-                      id="user-dropdown"
-                      class="btn btn-link username-button">
-                <%= current_user.full_name.upcase %> <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" role="menu">
-                <li>
-                  <a tabindex="-1"
-                     href='<%= "#{user_path(current_user)}" %>'>
-                     Account Profile
-                  </a>
-                </li>
-                <li>
-                  <%= link_to '<span class="glyphicon glyphicon-off"></span> Log Out'.html_safe, session_url, method: :delete %>
-                </li>
-              </ul>
-              </a>
-            </div>
-          </li>
-          
-      
+        <li class="<%= maybe_active(@dashboard) %>">
+          <%= link_to 'DASHBOARD', '/' %>
+        </li>
+        
+        <li>
+          <div class="dropdown">
+            <button data-toggle="dropdown"
+                    id="user-dropdown"
+                    class="btn btn-link username-button">
+              <%= current_user.full_name.upcase %> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <a tabindex="-1"
+                   href='<%= "#{user_path(current_user)}" %>'>
+                   <p>Account Profile</p>
+                </a>
+              </li>
+              <li>
+                <%= link_to '<p>Log Out  <span class="glyphicon glyphicon-off"></span></p>'.html_safe, session_url, method: :delete %>
+              </li>
+            </ul>
+            </a>
+          </div>
+        </li>  
       <% else %>
         <li>
           <a href="#"
              data-toggle="modal"
              data-target="#signUp">
-            Sign Up
+            SIGN UP
           </a>
         </li>
         <li>
           <a href="#"
              data-toggle="modal"
              data-target="#logIn">
-            Log In
+            LOG IN
           </a>
         </li>
-      
       <% end %>
-      
       </ul>
       
       <!--<form class="navbar-form" role="search">
@@ -91,7 +70,5 @@
           <span class="glyphicon glyphicon-search"></span>
         </button>
       </form>-->
-      
-    </div>
   </div>
 </nav>

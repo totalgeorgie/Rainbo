@@ -5,6 +5,7 @@
  *= require_self
  */
 
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
 
 html {
   height: 100%;
@@ -14,23 +15,19 @@ html {
 body {
   width: 100%;
   height: 100%;
-  font-family: Arial;
+  font-family: Montserrat, Arial;
 }
 
 .row {
   padding-left: 15px;
 }
 
-.col-md-12 {
+.nav-container {
   padding: 0px;
 }
 
-.splash {
-  margin-left: 15px;
-}
-
-.static-show {
-  margin-top: 50px;
+.col-md-12 {
+  padding: 0px;
 }
 
 .footer {
@@ -43,11 +40,36 @@ body {
 }
 
 .navbar {
-  min-height: 35px;
+  min-height: 36px;
 }
 
 .collapse {
   padding-left: 0px;
+}
+
+.navbar-header {
+  float: right;
+}
+
+#navbar-logo {
+  float: left;
+  margin-top: 0px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+  height: 1px;
+}
+
+#navbar-log {
+  margin-top: 0px;
+}
+
+button.navbar-toggle {
+  margin-top: 3px;
+  margin-right: 6px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .navbar .container-fluid {
@@ -74,8 +96,30 @@ body nav.navbar {
   color: white;
 }
 
+.dropdown {
+  margin-right: 8px;
+}
+
+#nq1 {
+  margin-top: 0px;
+  float: left;
+}
+
+#nq2 {
+  margin-top: 0px;
+  float: right;
+}
+
+#nq2 li {
+  display: inline-block;
+}
+
 #header-logo a {
   padding: 0px 0px 0px 5px;
+}
+
+.dashboard-link-active {
+  background-color: #32353C;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -117,4 +161,8 @@ body nav.navbar {
 
 .nav-user-auth li {
   display: inline-block;
+}
+
+.close {
+  float: left;
 }

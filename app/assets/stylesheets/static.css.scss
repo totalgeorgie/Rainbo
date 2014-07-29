@@ -1,0 +1,100 @@
+.splash {
+  margin-left: 15px;
+}
+
+.static-show {
+  margin-top: 50px;
+}
+
+.help {
+  overflow-y: auto;
+  position: relative;
+  height: 500px;
+}
+
+.faq-header {
+  margin: 0px;
+  padding: 5px 0px 10px 0px;
+}
+
+.answer {
+  margin-left: 15px;
+}
+
+.megatron {
+  position: fixed;
+  top: 35px;
+}
+
+.megatron div h4 {
+  overflow: hidden;
+}
+
+.splash-left, .splash-right {
+  margin: 20px 0px 20px 0px;
+  padding: 0px;
+}
+
+.splash-right {
+  text-align: center;
+}
+
+.ultra-list {
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+.ultra {
+  padding-left: 18px;
+}
+
+.ultra p {
+  margin-bottom: 0px;
+}
+
+.ultra-text {
+  padding: 5px;
+  font-size: 72px;
+  background-color: #f6f6f6;
+  color: #4E6CA4;
+}
+
+.splash-box {
+  background-color: #4E6CA4;
+}
+
+.splash-rule {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  border: 1px solid white;
+}
+
+.action-box {
+  background-color: #BA9E00;
+}
+
+.splash-text {
+  color: white;
+  margin-bottom: 0px;
+  font-size: 24px;
+}
+
+.splash-signup {
+  color: white;
+  font-size: 36px;
+  padding: 2px 10px 2px 10px;
+  background-color: #D46B00; 
+}
+
+.splash-login {
+  color: white;
+  font-size: 36px;
+  padding: 2px 10px 2px 10px;
+  background-color: #A81235; 
+}
+
+.feature {
+  text-decoration: underline;
+}

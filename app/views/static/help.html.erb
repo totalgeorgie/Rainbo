@@ -1,5 +1,55 @@
-<div class="container-fluid static-show">
-  <h1>
-    Oh man. A help wiki would be so good here.
-  </h1>
+<% @help = true %>
+<div class='modals'>
+  <%= render 'new' %>
+  <%= render 'login' %>
+</div>
+
+<div class="dashboard-header">
+  <div class="container col-md-offset-2">
+    <h4>PROFLOWS HELP</h4>
+  </div>
+</div>
+<div class="container col-md-offset-2">
+  <div class="row">
+    <div class="col-md-4">
+      <h1 class="faq-header">FAQs</h1>
+      <div class="help" data-spy="scroll" data-target=".navbar-help">
+        <ul>
+          <li class="faq-item">
+            <p class="question">
+              Is there such a thing as FAQ Lorem Ilisum?
+            </p>
+            <p class="answer">
+              No, there isn't. I better invent it.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h1 class="faq-header">Topics</h1>
+      <ul class="navbar-help">
+        <li>
+          <a>
+            Getting Started
+          </a>
+        </li>
+        <li>
+          <a>
+            FAQ
+          </a>
+        </li>
+        <li>
+          <a>
+            Recent Updates
+          </a>
+        </li>
+        <li>
+          <a>
+            Developer API - COMING SOON
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

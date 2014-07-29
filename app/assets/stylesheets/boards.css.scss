@@ -1,7 +1,7 @@
 #main {
   position: fixed;
+  top: 0px;
   width: 100%;
-  top: 35px;
   bottom: 0px;
   padding: 0px;
   background-color: #f6f6f6;
@@ -58,7 +58,7 @@ body {
 }
 
 .static-show {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .footer {
@@ -152,7 +152,7 @@ body nav.navbar {
 .dashboard-header {
   background-color: #32353C;
   width: 100%;
-  margin: 0px;
+  margin: 35px 0px 0px 0px;
   color: white;
 }
 

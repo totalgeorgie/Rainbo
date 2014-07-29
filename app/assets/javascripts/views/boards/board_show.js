@@ -48,4 +48,4 @@ ProFlo.Views.BoardShow = Backbone.CompositeView.extend({
   }
 });
 
-// _.extend(ProFlo.Views.BoardShow.prototype, ProFlo.Utils.OrdView);
+_.extend(ProFlo.Views.BoardShow.prototype, ProFlo.Utils.OrdView);
