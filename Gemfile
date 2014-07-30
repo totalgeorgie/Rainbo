@@ -25,6 +25,7 @@ group :development, :test do
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'better_errors', '~> 1.1.0'
   gem 'spring', '~> 1.1.3'
+  gem "letter_opener", '~> 1.2.0'
 end
 
 group :production do
