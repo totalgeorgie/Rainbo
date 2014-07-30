@@ -9,6 +9,14 @@
       </div>
       
       <div class="modal-body">
+        <ul class='errors'>
+          <% if flash.now[:errors] %>
+            <% flash.now[:errors].each do |error| %>
+              <%= "<li>#{error.message}</li>" %>
+            <% end %>
+          <% end %>
+        </ul>
+        
         <div class='signUp-form'>
           <form action='<%= users_url %>' method='post'>
             <input type='hidden'

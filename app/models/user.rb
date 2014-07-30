@@ -14,12 +14,13 @@
 class User < ActiveRecord::Base
   attr_reader :password
   
-  validates :email, :session_token, presence: true
+  validates :email, :session_token, :activation_token, presence: true
   validates_format_of :email, with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
   validates :password_digest, presence: { message: 'Password can\'t be blank' }
   validates :password, length: { minimum: 6, allow_nil: true }
   
   after_initialize :ensure_session_token
+  after_initialize :ensure_activation_token
   
   has_many :boards
   has_many :card_assignments
@@ -30,7 +31,7 @@ class User < ActiveRecord::Base
     User.find_by_email(email)
   end
   
-  def self.generate_session_token
+  def self.generate_token
     SecureRandom::urlsafe_base64(16)
   end
   
@@ -39,7 +40,7 @@ class User < ActiveRecord::Base
   end
   
   def reset_session_token!
-    self.session_token = self.class.generate_session_token
+    self.session_token = self.class.generate_token
     self.save!
     self.session_token
   end
@@ -59,6 +60,10 @@ class User < ActiveRecord::Base
   
   private
   def ensure_session_token
-    self.session_token ||= self.class.generate_session_token
+    self.session_token ||= self.class.generate_token
+  end
+  
+  def ensure_activation_token
+    self.activation_token ||= self.class.generate_token
   end
 end

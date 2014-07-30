@@ -7,7 +7,7 @@ ProFlo.Views.BoardShow = Backbone.CompositeView.extend({
 
   orderOptions: {
     modelElement: '.list-display',
-    modelName: 'list',
+    modelName: 'list'
   },
 
   template: JST['boards/show'],
@@ -37,7 +37,19 @@ ProFlo.Views.BoardShow = Backbone.CompositeView.extend({
 
   renderLists: function () {
     this.model.lists().each(this.addList.bind(this));
-    this.$('#lists').sortable();
+    this.$('#lists').sortable({
+      axis: 'x',
+      cursor: 'move',
+      cancel: 'input, textarea, button, select, option, .list-cards',
+      distance: 5,
+      opacity: 0.8,
+      placeholder: 'list-sort-placeholder',
+      containment: 'parent',
+      revert: true,
+      helper: 'clone',
+      forceHelperSize: true,
+      forcePlaceholderSize: true
+    });
   },
 
   renderListForm: function () {

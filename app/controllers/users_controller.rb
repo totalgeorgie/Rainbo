@@ -18,7 +18,8 @@ class UsersController < ApplicationController
       log_in!(@user)
       redirect_to root_url
     else
-      render json: @user.errors.to_json
+      flash.now[:errors] = @user.errors.full_messages
+      render json: @user.errors.full_messages
     end
   end
   
@@ -26,11 +27,20 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       redirect_to root_url
     else
-      render json: @user.errors.to_json
+      flash.now[:errors] = @user.errors.full_messages
+      render json: @user.errors.full_messages
     end
   end
   
   def destroy
+    @user.destroy
+    flash.now[:errors] =
+      ['Thanks for using ProFlows. Your account has been deleted.']
+    redirect_to '/'
+  end
+  
+  def activate
+    
   end
   
   private

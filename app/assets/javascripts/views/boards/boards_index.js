@@ -22,16 +22,19 @@ ProFlo.Views.BoardsIndex = Backbone.CompositeView.extend({
   
   boardDelete: function(e) {
     e.preventDefault();
+    var view = this;
     
     var boardId = $(e.currentTarget).parents('.board-detail-div')
                                     .data('board-id');
-
-    var view = this;
     
-    this.collection.getOrFetch(boardId).destroy();                                
-    _($("[data-board-id=" + boardId + "]")).each(function(subv){
-      view.removeSubview('#boards', subv);
-    });
+    var deleteConfirm = confirm("PERMANENTLY delete this project and all of its contents?")
+    
+    if (deleteConfirm === true) {
+      this.collection.getOrFetch(boardId).destroy();                                
+      _($("[data-board-id=" + boardId + "]")).each(function(subv){
+        view.removeSubview('#boards', subv);
+      });
+    }
   },
 
   initialize: function () {

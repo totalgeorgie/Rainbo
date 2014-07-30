@@ -1,6 +1,8 @@
 <div class="container-fluid static-show">
-  <h1><%= @user.full_name %></h1>
-
+  <h1>Your profile, <%= @user.full_name %></h1>
+  
+  <div class="container col-md-4">
+    <h3>Account Settings</h3>
   <form action="<%= user_url @user %>" method="post">
     <input type="hidden"
            name="_method"
@@ -49,7 +51,17 @@
              placeholder="Password"
              class="form-control">
     </div>
+    
+    <div class="form-group">
+      <label for="user_old_password">Current Password</label>
+      <input type="password"
+             id="user_old_password"
+             name="user[old_password]"
+             placeholder="Current Password"
+             class="form-control">
+    </div>
          
     <button class="btn btn-default">Update your account</button>
   </form>
+</div>
 </div>
