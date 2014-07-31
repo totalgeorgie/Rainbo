@@ -16,7 +16,7 @@ gem 'bootstrap-sass', '~> 3.2.0.0'
 gem 'newrelic_rpm', '~> 3.9.0.229'
 gem 'autoprefixer-rails', '~> 2.1.1.20140710'
 gem 'turbolinks', '~> 2.2.2'
-gem 'unicorn', '~> 4.8.3'
+gem 'thin', '~> 1.6.2'
 
 group :development, :test do
   gem 'annotate', '~> 2.6.5'
