@@ -18,7 +18,7 @@
         </ul>
         
         <div class='signUp-form'>
-          <form action='<%= users_url %>' method='post'>
+          <form action='<%= users_url %>' method='post' id="registration-form">
             <input type='hidden'
                    name='authenticity_token'
                    value='<%= form_authenticity_token %>'>
@@ -29,25 +29,29 @@
                      name='user[given_name]'
                      id='user_given_name'
                      placeholder='First Name'
-                     class='form-control'>
+                     class='form-control'
+                     required>
 
               <input type='text'
                      name='user[surname]'
                      id='user_surname'
                      placeholder='Last Name'
-                     class='form-control'>
+                     class='form-control'
+                     required>
 
               <input type='email'
                      name='user[email]'
                      id='user_email'
                      placeholder='E-Mail'
-                     class='form-control'>
+                     class='form-control'
+                     required>
            
               <input type='password'
                      name='user[password]'
                      id='user_password'
-                     placeholder='Password'
-                     class='form-control'>
+                     placeholder='Password (at least 6 characters)'
+                     class='form-control'
+                     required>
             </div>
   
             <button class='btn btn-danger btn-lg btn-start'>

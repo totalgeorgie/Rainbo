@@ -43,6 +43,7 @@ ProFlo.Views.BoardShow = Backbone.CompositeView.extend({
       cancel: 'input, textarea, button, select, option, .list-cards',
       distance: 5,
       opacity: 0.8,
+      tolerace: 'pointer',
       placeholder: 'list-sort-placeholder',
       containment: 'parent',
       revert: true,

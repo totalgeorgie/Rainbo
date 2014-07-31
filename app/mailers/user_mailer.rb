@@ -1,9 +1,10 @@
 class UserMailer < ActionMailer::Base
-  default from: "admin@proflo.ws"
+  default from: "george@proflo.ws"
   
   def welcome_email(user)
     @user = user
     @url = 'http://proflo.ws/'
-    mail(to: user.email, subject: 'Welcome to My Awesome Site')
+    @activation_url
+    mail(to: user.email, subject: 'Welcome to ProFlows')
   end
 end

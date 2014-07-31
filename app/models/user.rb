@@ -28,7 +28,10 @@ class User < ActiveRecord::Base
   has_many :subscribed_boards, through: :board_memberships, source: :board
   
   def self.find_by_credentials(email, password)
-    User.find_by_email(email)
+    @user = User.find_by_email(email)
+    return nil unless @user
+    return nil unless @user.is_password?(password)
+    @user
   end
   
   def self.generate_token

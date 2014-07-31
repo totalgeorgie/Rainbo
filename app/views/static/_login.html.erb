@@ -10,7 +10,7 @@
       
       <div class="modal-body">
         <div class='signUp-form'>
-          <form action='<%= session_url %>' method='post'>
+          <form action='<%= session_url %>' method='post' id='logIn-form'>
             <input type='hidden'
                    name='authenticity_token'
                    value='<%= form_authenticity_token %>'>
@@ -20,7 +20,9 @@
                      name='user[email]'
                      id='user_email'
                      placeholder='E-Mail'
-                     class='form-control'>
+                     class='form-control'
+                     required
+                     email>
            
               <input type='password'
                      name='user[password]'
