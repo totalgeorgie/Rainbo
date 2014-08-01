@@ -18,6 +18,19 @@ class Card < ActiveRecord::Base
   
   has_many :items, dependent: :destroy
   has_many :card_assignments, dependent: :destroy
+  has_many :assignees, through: :card_assignments, source: :user
+  
+  after_save do |card|
+    add_assignee(card.list.board.user)
+  end
+  
+  def add_assignee(user)
+    self.assignees << user unless self.assignees.include?(user)
+  end
+  
+  def is_member?(user)
+    card_assignments.where(user_id: user.id).exists?
+  end
   
   default_scope { order(:ord) }
 end

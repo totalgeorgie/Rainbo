@@ -2,14 +2,17 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  email           :string(255)      not null
-#  password_digest :string(255)      not null
-#  given_name      :string(255)      not null
-#  surname         :string(255)      not null
-#  session_token   :string(255)      not null
-#  created_at      :datetime
-#  updated_at      :datetime
+#  id               :integer          not null, primary key
+#  email            :string(255)      not null
+#  password_digest  :string(255)      not null
+#  given_name       :string(255)      not null
+#  surname          :string(255)      not null
+#  session_token    :string(255)      not null
+#  created_at       :datetime
+#  updated_at       :datetime
+#  activation_token :string(255)      not null
+#  activated        :boolean          default(FALSE)
+#
 
 class User < ActiveRecord::Base
   attr_reader :password
