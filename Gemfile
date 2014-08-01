@@ -17,6 +17,7 @@ gem 'newrelic_rpm', '~> 3.9.0.229'
 gem 'autoprefixer-rails', '~> 2.1.1.20140710'
 gem 'turbolinks', '~> 2.2.2'
 gem 'thin', '~> 1.6.2'
+gem 'figaro', '~> 0.7.0'
 
 group :development, :test do
   gem 'annotate', '~> 2.6.5'

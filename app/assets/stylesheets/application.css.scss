@@ -18,9 +18,17 @@ body {
   font-family: Montserrat, Arial;
 }
 
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: white;
+}
+
 a:hover {
   text-decoration: none;
-  color: white;
+  color: lightgrey;
 }
 
 .row {

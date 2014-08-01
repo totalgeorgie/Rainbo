@@ -74,13 +74,32 @@
         <p class="splash-text">
           OR
         </p>
-        <p class="splash-text">
+        <!--<p class="splash-text">
           <a href="#"
              class="splash-login"
              data-toggle="modal"
              data-target="#logIn">
              LOG IN NOW
           </a>
+        </p>
+        <p class="splash-text">
+          OR
+        </p>-->
+        <p class="splash-text">
+          <a href="users/demo"
+          id="trydemo"
+          class="splash-login">
+            TRY THE DEMO
+          </a>
+          <script type="text/javascript">
+          $('#trydemo').on('click', function(e) {
+            setTimeout(function() {
+              $('#user_email').val('george@gmail.com');
+              $('#user_password').val('password');
+              $('#demo').click();
+            }, 1000);
+          });
+          </script>
         </p>
       </div>
     </div>

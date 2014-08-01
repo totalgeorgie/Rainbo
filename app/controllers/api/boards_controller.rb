@@ -2,7 +2,7 @@ module Api
   class BoardsController < ApiController
     def create
       @board = current_user.boards.new(board_params)
-
+      
       if @board.save
         render json: @board
       else
@@ -20,6 +20,16 @@ module Api
       @board.try(:destroy)
       render json: {}
     end
+    
+    def update
+      @board = Board.find(params[:id])
+      
+      if @board.update_attributes(board_params)
+        render json: @board
+      else
+        render json: @board.errors.full_messages, status: :unprocessable_entity
+      end
+    end
 
     def index
       @boards = current_user.all_boards
@@ -33,6 +43,18 @@ module Api
         render :show
       else
         render json: ["You aren't a member of this board"], status: 403
+      end
+    end
+    
+    def subscribe
+      @user = User.find_by_email(params[:user_email])
+      @board = Board.find(params[:board_id])
+      
+      if(@user && @board && !@board.members.include?(@user))
+        @board.add_member(@user)
+        render json: ["Successfully added member"], status: 200
+      else
+        render json: ["Unable to add member."], status: 403
       end
     end
 

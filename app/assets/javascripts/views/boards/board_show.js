@@ -2,7 +2,8 @@ ProFlo.Views.BoardShow = Backbone.CompositeView.extend({
   className: 'board-show',
 
   events: {
-    'sortstop': 'saveOrds'
+    'sortstop': 'saveOrds',
+    'click .list-sidebar-control': 'listHide'
   },
 
   orderOptions: {
@@ -32,6 +33,7 @@ ProFlo.Views.BoardShow = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.renderLists();
     this.renderListForm();
+    this.renderMemberForm();
     return this;
   },
 
@@ -43,7 +45,7 @@ ProFlo.Views.BoardShow = Backbone.CompositeView.extend({
       cancel: 'input, textarea, button, select, option, .list-cards',
       distance: 5,
       opacity: 0.8,
-      tolerace: 'pointer',
+      tolerance: 'pointer',
       placeholder: 'list-sort-placeholder',
       containment: 'parent',
       revert: true,
@@ -52,13 +54,29 @@ ProFlo.Views.BoardShow = Backbone.CompositeView.extend({
       forcePlaceholderSize: true
     });
   },
+  
+  renderMemberForm: function() {
+    var view = new ProFlo.Views.MemberForm({
+      model: this.model
+    });
+    
+    this.addSubview('#members', view);
+  },
 
   renderListForm: function () {
     var view = new ProFlo.Views.ListForm({
       collection: this.collection
     });
-    this.addSubview('#sidebar', view, { type: 'prepend'});
+    this.addSubview('#panels', view);
+  },
+  
+  listHide: function(e) {
+    e.preventDefault();
+    var target = $(e.currentTarget).children().data('target-list');
+    $(e.currentTarget).toggleClass('list-hide-active');
+    $("[data-list-id='" + target +  "']").parent().toggleClass('list-hidden');
   }
+  
 });
 
 _.extend(ProFlo.Views.BoardShow.prototype, ProFlo.Utils.OrdView);

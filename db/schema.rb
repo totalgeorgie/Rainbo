@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20140731185239) do
   create_table "activities", force: true do |t|
     t.integer  "user_id",      null: false
     t.string   "name",         null: false
-    t.integer  "subject_id"
-    t.string   "subject_type"
+    t.integer  "subject_id",   null: false
+    t.string   "subject_type", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,10 +56,14 @@ ActiveRecord::Schema.define(version: 20140731185239) do
   add_index "card_assignments", ["card_id", "user_id"], name: "index_card_assignments_on_card_id_and_user_id", unique: true, using: :btree
 
   create_table "cards", force: true do |t|
-    t.string   "title",                     null: false
-    t.integer  "list_id",                   null: false
+    t.string   "title",                         null: false
+    t.integer  "list_id",                       null: false
     t.text     "description"
-    t.float    "ord",         default: 0.0
+    t.datetime "completion_date"
+    t.integer  "points",          default: 0,   null: false
+    t.integer  "card_type",       default: 0,   null: false
+    t.integer  "status",          default: 0,   null: false
+    t.float    "ord",             default: 0.0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,9 +81,10 @@ ActiveRecord::Schema.define(version: 20140731185239) do
   add_index "items", ["card_id"], name: "index_items_on_card_id", using: :btree
 
   create_table "lists", force: true do |t|
-    t.string   "title",                    null: false
-    t.integer  "board_id",                 null: false
-    t.float    "ord",        default: 0.0
+    t.string   "title",                         null: false
+    t.integer  "board_id",                      null: false
+    t.boolean  "display_status", default: true, null: false
+    t.float    "ord",            default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

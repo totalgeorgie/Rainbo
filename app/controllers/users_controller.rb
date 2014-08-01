@@ -43,6 +43,12 @@ class UsersController < ApplicationController
     
   end
   
+  def demo
+    @user = User.first
+    log_in!(@user)
+    redirect_to root_url
+  end
+  
   private
   def user_params
     params.require(:user).permit(:given_name, :surname, :email, :password)

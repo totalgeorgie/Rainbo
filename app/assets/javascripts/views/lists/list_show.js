@@ -1,13 +1,14 @@
 ProFlo.Views.ListShow = Backbone.CompositeView.extend({
   orderOptions: {
     modelElement: '.card-display',
-    modelName: 'card',
+    modelName: 'card'
   },
 
   events: {
     'sortreceive': 'receiveCard',
     'sortremove': 'removeCard',
-    'sortstop': 'saveCards'
+    'sortstop': 'saveCards',
+    'click .list-hide' : 'hideList'
   },
 
   template: JST['lists/show'],
@@ -76,7 +77,16 @@ ProFlo.Views.ListShow = Backbone.CompositeView.extend({
 
   renderCards: function () {
     this.model.cards().each(this.addCard.bind(this));
-    this.$('.list-cards').sortable({connectWith: '.list-cards'});
+    this.$('.list-cards').sortable({
+      connectWith: '.list-cards',
+      cursor: 'move',
+      distance: 5,
+      opacity: 0.8,
+      tolerance: 'pointer',
+      revert: true,
+      helper: 'clone',
+      forceHelperSize: true
+    });
   },
 
   renderFooter: function () {
@@ -101,6 +111,12 @@ ProFlo.Views.ListShow = Backbone.CompositeView.extend({
   saveCards: function(event) {
     event.stopPropagation(); // Prevent list sorting listener from firing.
     this.saveOrds();
+  },
+  
+  hideList: function(event) {
+    event.preventDefault();
+    
+    this.$el.toggleClass('list-hidden');
   }
 });
 

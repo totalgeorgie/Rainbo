@@ -1,37 +1,60 @@
 <div class='lists-window'>
   <div id="sidebar">
-    <h1>
+    <h1 id="members">
+      Members
+    </h1>
+    <ul>
+      <% if (board.members) { %>
+        <% _(board.members).each(function(member) { %>
+          <li class="list-sidebar-member">
+            <p class='initials'><%= member.initials %>  <span class="mini"><%= member.full_name %></span> <span class="glyphicon glyphicon-phone-alt" style="color: red; float: right"></span></p>
+            
+          </li>
+        <% }); %>
+      <% } %>
+    </ul>
+    
+    <h1 id="panels">
       Panels
     </h1>
     <ul>
-      <li>
-        Done
-      </li>
-      <li>
-        GEs
-      </li>
-      <li>
-        BWEH
-      </li>
-      <li>
-        SideBarCat
-      </li>
-      <li>
-        SideBarCat
-      </li>
-      <li>
-        Todo
-      </li>
-      <li>
-        Doing
-      </li>
+      <% board._lists.each(function(list) { %>
+          <li class="list-sidebar-control" style="text-transform: capitalize">
+            <a href="#" data-target-list="<%= list.get('id') %>"><%= list.escape('title') %></a>
+          </li>
+      <% }); %>
     </ul>
   </div>
   <div id="lists">
 
   </div>
-
-  <div id="list-form">
-    
-  </div>
 </div>
+
+<script type="text/javascript">
+  var apiKey    = "44918731";
+  var sessionId = "1_MX40NDkxODczMX5-RnJpIEF1ZyAwMSAxMTo1NzowMyBQRFQgMjAxNH4wLjM5MTQzMDQ0fn4";
+  var token     = "T1==cGFydG5lcl9pZD00NDkxODczMSZzaWc9YjQ2NGRmMDUwNzQ1YWJjODU3MmE0MjE4ZGRhNGYxOWM0M2UyZWYyOTpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0ME5Ea3hPRGN6TVg1LVJuSnBJRUYxWnlBd01TQXhNVG8xTnpvd015QlFSRlFnTWpBeE5INHdMak01TVRRek1EUTBmbjQmY3JlYXRlX3RpbWU9MTQwNjkxOTQzNyZub25jZT0wLjI3Mzk5MzQyMTQ5NDIwMzgmZXhwaXJlX3RpbWU9MTQwNzAwNTgxMg==";
+ 
+  var session = OT.initSession(apiKey, sessionId);
+ 
+  session.on("streamCreated", function(event) {
+    session.subscribe(event.stream);
+  });
+ 
+  session.connect(token, function(error) {
+    var publisher = OT.initPublisher();
+    session.publish(publisher);
+  });
+</script>
+
+<script type="text/javascript">
+$(function(){
+  setInterval(function(){
+    $('.OT_mirrored').css('position', 'fixed');
+    $('.OT_mirrored').css('top', '680px');
+    $('.OT_mirrored').css('width', '195px');
+    $('.OT_mirrored').css('margin-left', '5px');
+    $('#sidebar ul:first li:last-child p .glyphicon').css('color', 'green')
+  }, 2000);
+})
+</script>

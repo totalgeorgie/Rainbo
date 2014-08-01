@@ -12,6 +12,9 @@
 #
 
 class Card < ActiveRecord::Base
+  enum status: [:proposed, :active, :finished, :accepted, :rejected]
+  enum card_type: [:feature, :issue, :task, :milestone]
+  
   validates :title, :list, :ord, presence: true
   
   belongs_to :list

@@ -1,2 +1,20 @@
 <p class="card-title"><%= card.escape('title') %></p>
-<p class="card-description"><%= card.escape('description') %></p>
+<form id="card-edit">
+  <br>
+  <div class="form-group form-group-tight">
+    <label for="card_title">Title:&nbsp;&nbsp;&nbsp;</label>
+    <input type="text" value="<%= card.escape('title') %>" id="card_title">
+  </div>
+  <div class="form-group form-group-tight">
+    <label for="card_description">Desc:&nbsp;&nbsp;</label>
+    <input type="text" placeholder="text" id="card_description">
+  </div>
+  <div class="form-group form-group-tight">
+    <label for="card_status">Status:</label>
+    <input type="text" value="<%= card.escape('status') %>" id="card_status">
+  </div>
+  <div class="card-assignment-drop" class="form-group">
+    <p style="margin-top: 18px; margin-left: 10px;">Drag Members here to assign!</p>
+  </div>
+  <button class="btn btn-default">Update Card</button>
+</form>

@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   
   after_initialize :ensure_session_token
   after_initialize :ensure_activation_token
+  #after_create :generate_demo_boards
   
   has_many :boards
   has_many :card_assignments
@@ -60,8 +61,16 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
   
+  #def demo=(demo)
+    #@demo = demo
+    #end
+  
   def full_name
     "#{self.given_name} #{self.surname}"
+  end
+  
+  def initials
+    "#{self.given_name.first}#{self.surname.first}"
   end
   
   private
@@ -72,4 +81,10 @@ class User < ActiveRecord::Base
   def ensure_activation_token
     self.activation_token ||= self.class.generate_token
   end
+  
+  #def generate_demo_boards
+    #if @demo
+      #
+      #end
+    #end
 end

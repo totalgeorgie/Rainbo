@@ -12,3 +12,5 @@
 # Don't upload secrets to repo
 config/initializers/secret_token.rb
 config/secrets.yml
+# Ignore application configuration
+/config/application.yml

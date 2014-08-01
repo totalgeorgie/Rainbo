@@ -1,5 +1,5 @@
 .card-display {
-  background-color: #99ff99;
+  opacity: 0.9;
   margin: 0px;
   border: 0px;
   border-bottom: 1px solid white;
@@ -7,6 +7,58 @@
   cursor: move;
 }
 
+.card-display:hover {
+  opacity: 1;
+}
+
+.card-toggled {
+  border: 2px solid goldenrod;
+  height: 300px;
+}
+
+.card-toggled #card-edit {
+  display: block;
+}
+
 .card-title {
   text-transform: capitalize;
+  display: inline-block;
+  margin: 0px;
+}
+
+.card-rejected {
+  background-color: #ffcccc;
+}
+
+.form-group .form-group-tight {
+  margin-bottom: 10px;
+}
+
+.card-accepted {
+  background-color: #ccffcc;
+}
+
+.card-finished {
+  background-color: #cccccc;
+}
+
+.card-active {
+  background-color: #ddaacc;
+}
+
+.card-proposed {
+  background-color: #aaccff;
+}
+
+#card-edit {
+  height: 100%;
+  display: none;
+}
+
+.card-assignment-drop {
+  height: 60px;
+  width: 240px;
+  background-color: aliceblue;
+  border: 1px solid black;
+  margin-bottom: 5px;
 }

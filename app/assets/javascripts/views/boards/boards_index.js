@@ -5,19 +5,30 @@ ProFlo.Views.BoardsIndex = Backbone.CompositeView.extend({
   
   events: {
     'click .board-members': 'showMembers',
-    'click .board-settings': 'showSettings',
+    'click .board-settings': 'updateSettings',
     'click .board-delete': 'boardDelete'
   },
   
   showMembers: function(e) {
     e.preventDefault();
-    
+
   },
   
-  showSettings: function(e) {
+  updateSettings: function(e) {
     e.preventDefault();
     
+    var boardId = $(e.currentTarget).parents('.board-detail-div')
+                                    .data('board-id');
     
+    var newTitle = prompt("Enter a new Project Title:");
+    
+    if (newTitle !== '' || newTitle !== undefined) {
+      var board = this.collection.getOrFetch(boardId);
+      board.set({
+        "title": newTitle
+      });
+      board.save();
+    }
   },
   
   boardDelete: function(e) {
@@ -27,7 +38,7 @@ ProFlo.Views.BoardsIndex = Backbone.CompositeView.extend({
     var boardId = $(e.currentTarget).parents('.board-detail-div')
                                     .data('board-id');
     
-    var deleteConfirm = confirm("PERMANENTLY delete this project and all of its contents?")
+    var deleteConfirm = confirm("PERMANENTLY delete this project and all of its contents?");
     
     if (deleteConfirm === true) {
       this.collection.getOrFetch(boardId).destroy();                                

@@ -8,11 +8,18 @@ ProFlo.Models.Board = Backbone.Model.extend({
 
     return this._lists;
   },
-
+  
   parse: function (response) {
     if(response.lists) {
       this.lists().set(response.lists, { parse: true });
       delete response.lists;
+    }
+    
+    //TODO: convert this to an backbone User model/collection
+    
+    if(response.members) {
+      this.members = response.members;
+      delete response.members;
     }
 
     return response;

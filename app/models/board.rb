@@ -19,6 +19,7 @@ class Board < ActiveRecord::Base
   
   after_save do |board|
     add_member(board.user)
+    add_default_lists
   end
   
   def is_member?(user)
@@ -28,5 +29,13 @@ class Board < ActiveRecord::Base
   
   def add_member(user)
     self.members << user unless self.members.include?(user)
+  end
+  
+  def add_default_lists
+    self.lists.create(title: 'Proposed')
+    self.lists.create(title: 'Active')
+    self.lists.create(title: 'Finished')
+    self.lists.create(title: 'Accepted')
+    self.lists.create(title: 'Rejected')
   end
 end
