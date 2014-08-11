@@ -1,6 +1,6 @@
-# Rainbo
+# ProFlows 0.1 - formerly Rainbo
 
-A beautiful, public-facing task management/project proposal app for your Agile software project.
+Agile software development project tracker with integrated WebRTC conference calling. Currently in beta.
+Built with Rails/Backbone/OpenTok.
 
-UNDER CONSTRUCTION
-Development site hosted at http://rainbo.herokuapp.com
+Development site hosted at http://proflo.ws/
